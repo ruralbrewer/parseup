@@ -1,0 +1,5 @@
+build/
+vendor/
+mdfiles/
+.idea
+.DS_Store
