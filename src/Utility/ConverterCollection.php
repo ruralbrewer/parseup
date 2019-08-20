@@ -14,7 +14,7 @@ class ConverterCollection
      */
     private $converters = [];
 
-    public static function fromArray(array $converters)
+    public static function fromArray(array $converters): ConverterCollection
     {
         $collection = new static;
 
@@ -25,7 +25,7 @@ class ConverterCollection
         return $collection;
     }
 
-    public function addConverter(MarkDownLineConverter $converter)
+    public function addConverter(MarkDownLineConverter $converter): void
     {
         $this->converters[$converter->type()->asString()] = $converter;
     }
@@ -49,7 +49,7 @@ class ConverterCollection
         return $this->converters[$type->asString()];
     }
 
-    public function iterator()
+    public function iterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->converters);
     }

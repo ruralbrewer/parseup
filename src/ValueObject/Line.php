@@ -15,7 +15,7 @@ class Line
         $this->line = preg_replace('/ {4}(?!\R+)/', "\t", $line);
     }
 
-    public function setLine(string $line)
+    public function setLine(string $line): void
     {
         $this->line = $line;
     }
@@ -32,7 +32,7 @@ class Line
         return strlen($matches[1]);
     }
 
-    public function reduceIndentionBy(int $numberOfTabs)
+    public function reduceIndentionBy(int $numberOfTabs): void
     {
         $this->line = preg_replace('/^>?(\t{'.$numberOfTabs.'})/', '', $this->line);
     }
@@ -49,17 +49,17 @@ class Line
         return $matches;
     }
 
-    public function replace(string $pattern, string $replacement)
+    public function replace(string $pattern, string $replacement): void
     {
         $this->line = preg_replace($pattern, $replacement, $this->line);
     }
 
-    public function replaceWithCallBack(string $pattern, callable $callback)
+    public function replaceWithCallBack(string $pattern, callable $callback): void
     {
         $this->line = preg_replace_callback($pattern, $callback, $this->line);
     }
 
-    public function htmlEntities()
+    public function htmlEntities(): void
     {
         $this->line = htmlentities($this->line);
     }

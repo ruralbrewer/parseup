@@ -79,7 +79,7 @@ class MarkDownToHtml implements MarkDownParser
         return $this->linesProcessed;
     }
 
-    public function loadFile(File $markDown)
+    public function loadFile(File $markDown): void
     {
         $this->html = [];
         $this->markDown = $markDown;
@@ -233,14 +233,14 @@ class MarkDownToHtml implements MarkDownParser
         return false;
     }
 
-    private function processNestedLine(Line $line)
+    private function processNestedLine(Line $line): void
     {
         $converter = $this->converterForCurrentNesting;
         $tabsToRemove = $converter->currentIndentionLevel() + 1;
         $line->reduceIndentionBy($tabsToRemove);
     }
 
-    private function setNestingMode(Line $line, Nestable $converter)
+    private function setNestingMode(Line $line, Nestable $converter): void
     {
         $converter->setIsNesting();
         $this->converterForCurrentNesting = $converter;
@@ -251,7 +251,7 @@ class MarkDownToHtml implements MarkDownParser
     /**
      * @throws ConverterNotFoundException
      */
-    private function closeBlock(EntityType $entityType)
+    private function closeBlock(EntityType $entityType): void
     {
         $converter = $this->converters->getConverterType($entityType);
 
@@ -268,7 +268,7 @@ class MarkDownToHtml implements MarkDownParser
     /**
      * @throws InvalidMarkDownException
      */
-    private function checkFinalBlockStack()
+    private function checkFinalBlockStack(): void
     {
         if (!$this->blockStack->isEmpty()) {
             if ($this->blockStack->peek()->equals(EntityType::blockEnd())) {

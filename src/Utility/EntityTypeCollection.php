@@ -12,7 +12,7 @@ class EntityTypeCollection
      */
     private $entityTypes = [];
 
-    public static function fromArray(array $entityTypes)
+    public static function fromArray(array $entityTypes): EntityTypeCollection
     {
         $collection = new static;
 
@@ -23,7 +23,7 @@ class EntityTypeCollection
         return $collection;
     }
 
-    public function addEntityType(EntityType $entityType)
+    public function addEntityType(EntityType $entityType): void
     {
         $this->entityTypes[$entityType->asString()] = $entityType;
     }
@@ -33,7 +33,7 @@ class EntityTypeCollection
         return isset($this->entityTypes[$entityType->asString()]);
     }
 
-    public function iterator()
+    public function iterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->entityTypes);
     }

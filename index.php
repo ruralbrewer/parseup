@@ -11,7 +11,7 @@ $parser = $factory->createParser();
 
 try {
 
-    $file = new File(__DIR__ . '/mdfiles/001-main.md');
+    $file = new File('/path/to/markdown.md');
 
     $parser->loadFile($file);
 

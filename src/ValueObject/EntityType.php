@@ -38,152 +38,152 @@ class EntityType
     private const NESTED = 'NESTED';
     private const NULL = 'NULL';
 
-    public static function escapedCharacters()
+    public static function escapedCharacters(): EntityType
     {
         return new static(self::ESCAPED_CHARACTERS);
     }
 
-    public static function code()
+    public static function code(): EntityType
     {
         return new static(self::CODE);
     }
 
-    public static function indentedCode()
+    public static function indentedCode(): EntityType
     {
         return new static(self::INDENTED_CODE);
     }
 
-    public static function inlineCode()
+    public static function inlineCode(): EntityType
     {
         return new static(self::INLINE_CODE);
     }
 
-    public static function unorderedList()
+    public static function unorderedList(): EntityType
     {
         return new static(self::UNORDERED_LIST);
     }
 
-    public static function orderedList()
+    public static function orderedList(): EntityType
     {
         return new static(self::ORDERED_LIST);
     }
 
-    public static function blockQuote()
+    public static function blockQuote(): EntityType
     {
         return new static(self::BLOCK_QUOTE);
     }
 
-    public static function header()
+    public static function header(): EntityType
     {
         return new static(self::HEADER);
     }
 
-    public static function underlinedHeader()
+    public static function underlinedHeader(): EntityType
     {
         return new static(self::UNDERLINED_HEADER);
     }
 
-    public static function inlineBoldItalic()
+    public static function inlineBoldItalic(): EntityType
     {
         return new static(self::INLINE_BOLD_ITALIC);
     }
 
-    public static function inlineBold()
+    public static function inlineBold(): EntityType
     {
         return new static(self::INLINE_BOLD);
     }
 
-    public static function boldOpener()
+    public static function boldOpener(): EntityType
     {
         return new static(self::BOLD_OPENER);
     }
 
-    public static function boldCloser()
+    public static function boldCloser(): EntityType
     {
         return new static(self::BOLD_CLOSER);
     }
 
-    public static function boldItalicOpener()
+    public static function boldItalicOpener(): EntityType
     {
         return new static(self::BOLD_ITALIC_OPENER);
     }
 
-    public static function boldItalicCloser()
+    public static function boldItalicCloser(): EntityType
     {
         return new static(self::BOLD_ITALIC_CLOSER);
     }
 
-    public static function inlineItalic()
+    public static function inlineItalic(): EntityType
     {
         return new static(self::INLINE_ITALIC);
     }
 
-    public static function italicCloser()
+    public static function italicCloser(): EntityType
     {
         return new static(self::ITALIC_CLOSER);
     }
 
-    public static function italicOpener()
+    public static function italicOpener(): EntityType
     {
         return new static(self::ITALIC_OPENER);
     }
 
-    public static function paragraph()
+    public static function paragraph(): EntityType
     {
         return new static(self::PARAGRAPH);
     }
 
-    public static function horizontalRule()
+    public static function horizontalRule(): EntityType
     {
         return new static(self::HORIZONTAL_RULE);
     }
 
-    public static function image()
+    public static function image(): EntityType
     {
         return new static(self::IMAGE);
     }
 
-    public static function link()
+    public static function link(): EntityType
     {
         return new static(self::LINK);
     }
 
-    public static function referenceLink()
+    public static function referenceLink(): EntityType
     {
         return new static(self::REFERENCE_LINK);
     }
 
-    public static function quickLink()
+    public static function quickLink(): EntityType
     {
         return new static(self::QUICK_LINK);
     }
 
-    public static function quickEmail()
+    public static function quickEmail(): EntityType
     {
         return new static(self::QUICK_EMAIL);
     }
 
-    public static function emptyLine()
+    public static function emptyLine(): EntityType
     {
         return new static(self::EMPTY_LINE);
     }
 
-    public static function lineBreak()
+    public static function lineBreak(): EntityType
     {
         return new static(self::LINE_BREAK);
     }
 
-    public static function blockEnd()
+    public static function blockEnd(): EntityType
     {
         return new static(self::BLOCK_END);
     }
 
-    public static function nested()
+    public static function nested(): EntityType
     {
         return new static(self::NESTED);
     }
 
-    public static function null()
+    public static function null(): EntityType
     {
         return new static(self::NULL);
     }

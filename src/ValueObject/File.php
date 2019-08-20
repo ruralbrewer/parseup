@@ -30,7 +30,7 @@ class File
     /**
      * @throws InvalidFileException
      */
-    private function ensureIsValidFile(string $path)
+    private function ensureIsValidFile(string $path): void
     {
         if (!is_file($path)) {
             throw new InvalidFileException(

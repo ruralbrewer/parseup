@@ -1,6 +1,14 @@
 {
   "name": "ruralbrewer/parseup",
   "description": "A PHP tool for converting Markdown to HTML",
+  "authors": [
+    {
+      "name": "Lee Wilkins",
+      "email": "lee.wilkins@cleanandsolid.com",
+      "homepage": "http://www.cleanandsolid.com",
+      "role": "Developer"
+    }
+  ],
   "require": {
     "php": "^7.3"
   },

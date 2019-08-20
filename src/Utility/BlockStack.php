@@ -9,7 +9,7 @@ class BlockStack
 {
     private $stack = [];
 
-    public function push(EntityType $entityType)
+    public function push(EntityType $entityType): void
     {
         $this->stack[] = $entityType;
     }
