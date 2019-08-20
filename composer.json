@@ -1,4 +1,6 @@
 {
+  "name": "ruralbrewer/parseup",
+  "description": "A PHP tool for converting Markdown to HTML",
   "require": {
     "php": "^7.3"
   },
