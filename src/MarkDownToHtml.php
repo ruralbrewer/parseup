@@ -53,11 +53,6 @@ class MarkDownToHtml implements MarkDownParser
      */
     private $specialBlockEntities;
 
-    /**
-     * @var int
-     */
-    private $linesProcessed = 0;
-
 
     public function __construct(ConverterCollection $converters)
     {
@@ -72,11 +67,6 @@ class MarkDownToHtml implements MarkDownParser
 
         $this->specialBlockEntities = $specialBlockEntities;
 
-    }
-
-    public function linesProcessed(): int
-    {
-        return $this->linesProcessed;
     }
 
     public function loadFile(File $markDown): void
@@ -139,8 +129,6 @@ class MarkDownToHtml implements MarkDownParser
         }
 
         $this->checkFinalBlockStack();
-
-        $this->linesProcessed = $this->lineNumber;
 
         return join("", $this->html);
     }
