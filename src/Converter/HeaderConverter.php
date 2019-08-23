@@ -18,12 +18,14 @@ class HeaderConverter implements MarkDownLineConverter
 
     public function canConvert(Line $line): bool
     {
-        return $line->matches('/^[#]{1,6}/');
+        return $line->matches('/^[#]{1,6}\s*/');
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])
     {
-        $matches = $line->getMatches('/^([#]{1,6})\s*(.*)/');
+        $matches = $line->getMatches('/^([#]{1,6})\s*([^\{]*)\s*(\{(.*)\})?/');
+
+        $id = (!empty($matches[3])) ? ' id="'. $matches[4] . '"' : '';
 
         $level = strlen($matches[1]);
 
@@ -37,7 +39,7 @@ class HeaderConverter implements MarkDownLineConverter
 
         $blockStack->push(EntityType::blockEnd());
 
-        $line->setLine($headerLine . '<h' . $level . '>' . $matches[2] . '</h' . $level . '>');
+        $line->setLine($headerLine . '<h' . $level .  $id . '>' . $matches[2] . '</h' . $level . '>');
     }
 
     public function isEndOfBlock(): bool

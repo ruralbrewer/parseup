@@ -10,6 +10,14 @@ use ParseUp\ValueObject\Line;
 
 class CodeBlockConverter implements MarkDownLineConverter
 {
+    /**
+     * @var array
+     */
+    private $matches = [];
+
+    /**
+     * @var bool
+     */
     private $isBlockEnd = false;
 
     public function type(): EntityType
@@ -19,14 +27,18 @@ class CodeBlockConverter implements MarkDownLineConverter
 
     public function canConvert(Line $line): bool
     {
-        return $line->matches('/[\~`]{3}.*/');
+        $this->matches = $line->getMatches('/[\~`]{3}([a-z]*)\s.*/');
+
+        return !empty($this->matches);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])
     {
         $tag = $this->checkForParagraph($blockStack);
 
-        $tag = $tag . '<pre><code>';
+        $opener = (!empty($this->matches[1])) ? '<pre><code class="' . $this->matches[1] .'">' : '<pre><code>';
+
+        $tag = $tag . $opener;
 
         if ($blockStack->peek()->equals(EntityType::code())) {
             $tag = '</code></pre>';
