@@ -17,6 +17,7 @@ class EntityType
     private const HEADER = 'HEADER';
     private const UNDERLINED_HEADER = 'UNDERLINED_HEADER';
     private const INLINE_BOLD_ITALIC = 'INLINE_BOLD_ITALIC';
+    private const STRIKE_THROUGH = 'STRIKE_THROUGH';
     private const INLINE_BOLD = 'INLINE_BOLD';
     private const BOLD_OPENER = 'BOLD_OPENER';
     private const BOLD_CLOSER = 'BOLD_CLOSER';
@@ -30,6 +31,7 @@ class EntityType
     private const IMAGE = 'IMAGE';
     private const LINK = 'LINK';
     private const REFERENCE_LINK = 'REFERENCE_LINK';
+    private const TASK_LIST = 'TASK_LIST';
     private const QUICK_LINK = 'QUICK_LINK';
     private const QUICK_EMAIL = 'QUICK_EMAIL';
     private const EMPTY_LINE = 'EMPTY_LINE';
@@ -128,6 +130,11 @@ class EntityType
         return new static(self::ITALIC_OPENER);
     }
 
+    public static function strikeThrough(): EntityType
+    {
+        return new static(self::STRIKE_THROUGH);
+    }
+
     public static function paragraph(): EntityType
     {
         return new static(self::PARAGRAPH);
@@ -151,6 +158,11 @@ class EntityType
     public static function referenceLink(): EntityType
     {
         return new static(self::REFERENCE_LINK);
+    }
+
+    public static function taskList(): EntityType
+    {
+        return new static(self::TASK_LIST);
     }
 
     public static function quickLink(): EntityType

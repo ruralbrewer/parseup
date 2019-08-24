@@ -28,6 +28,8 @@ use ParseUp\Converter\ParagraphConverter;
 use ParseUp\Converter\QuickEmailConverter;
 use ParseUp\Converter\QuickLinkConverter;
 use ParseUp\Converter\ReferenceLinkConverter;
+use ParseUp\Converter\StrikeThroughConverter;
+use ParseUp\Converter\TaskListConverter;
 use ParseUp\Converter\UnderlinedHeaderConverter;
 use ParseUp\Converter\UnorderedListConverter;
 use ParseUp\Utility\ConverterCollection;
@@ -49,10 +51,12 @@ class Factory
             new CodeBlockConverter(),
             new IndentedCodeBlockConverter(),
             new InlineCodeBlockConverter(),
+            new StrikeThroughConverter(),
             new InlineBoldItalicConverter(),
             new BoldItalicOpenerConverter(),
             new BoldItalicCloserConverter(),
             new HorizontalRuleConverter(),
+            new TaskListConverter(),
             new ReferenceLinkConverter(),
             new ImageConverter(),
             new LinkConverter(),
