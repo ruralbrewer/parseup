@@ -29,6 +29,8 @@ class EntityType
     private const PARAGRAPH = 'PARAGRAPH';
     private const HORIZONTAL_RULE = 'HORIZONTAL_RULE';
     private const IMAGE = 'IMAGE';
+    private const FOOT_NOTE_LINK = 'FOOT_NOTE_LINK';
+    private const FOOT_NOTE = 'FOOT_NOTE';
     private const LINK = 'LINK';
     private const REFERENCE_LINK = 'REFERENCE_LINK';
     private const TASK_LIST = 'TASK_LIST';
@@ -148,6 +150,16 @@ class EntityType
     public static function image(): EntityType
     {
         return new static(self::IMAGE);
+    }
+
+    public static function footNoteLink(): EntityType
+    {
+        return new static(self::FOOT_NOTE_LINK);
+    }
+
+    public static function footNote(): EntityType
+    {
+        return new static(self::FOOT_NOTE);
     }
 
     public static function link(): EntityType

@@ -31,8 +31,7 @@ class HeaderConverter implements MarkDownLineConverter
 
         $headerLine = '';
 
-        if (
-            $blockStack->peek()->equals(EntityType::paragraph())) {
+        if ($blockStack->peek()->equals(EntityType::paragraph())) {
             $headerLine = '</p>';
             $blockStack->pop();
         }

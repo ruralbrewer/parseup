@@ -10,6 +10,8 @@ use ParseUp\Converter\BoldItalicOpenerConverter;
 use ParseUp\Converter\BoldOpenerConverter;
 use ParseUp\Converter\EmptyLineConverter;
 use ParseUp\Converter\EscapedCharactersConverter;
+use ParseUp\Converter\FootNoteConverter;
+use ParseUp\Converter\FootNoteLinkConverter;
 use ParseUp\Converter\IndentedCodeBlockConverter;
 use ParseUp\Converter\InlineBoldItalicConverter;
 use ParseUp\Converter\InlineCodeBlockConverter;
@@ -57,6 +59,8 @@ class Factory
             new BoldItalicCloserConverter(),
             new HorizontalRuleConverter(),
             new TaskListConverter(),
+            new FootNoteConverter(),
+            new FootNoteLinkConverter(),
             new ReferenceLinkConverter(),
             new ImageConverter(),
             new LinkConverter(),
