@@ -31,6 +31,7 @@ use ParseUp\Converter\QuickEmailConverter;
 use ParseUp\Converter\QuickLinkConverter;
 use ParseUp\Converter\ReferenceLinkConverter;
 use ParseUp\Converter\StrikeThroughConverter;
+use ParseUp\Converter\TableConverter;
 use ParseUp\Converter\TaskListConverter;
 use ParseUp\Converter\UnderlinedHeaderConverter;
 use ParseUp\Converter\UnorderedListConverter;
@@ -51,6 +52,7 @@ class Factory
             new QuickEmailConverter(),
             new BlockQuoteConverter(),
             new CodeBlockConverter(),
+            new TableConverter(),
             new IndentedCodeBlockConverter(),
             new InlineCodeBlockConverter(),
             new StrikeThroughConverter(),

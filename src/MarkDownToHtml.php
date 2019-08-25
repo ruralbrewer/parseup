@@ -64,6 +64,7 @@ class MarkDownToHtml implements MarkDownParser
         $specialBlockEntities->addEntityType(EntityType::orderedList());
         $specialBlockEntities->addEntityType(EntityType::unorderedList());
         $specialBlockEntities->addEntityType(EntityType::blockQuote());
+        $specialBlockEntities->addEntityType(EntityType::table());
 
         $this->specialBlockEntities = $specialBlockEntities;
 

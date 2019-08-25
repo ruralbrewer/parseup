@@ -49,6 +49,13 @@ class Line
         return $matches;
     }
 
+    public function getAllMatches(string $pattern): array
+    {
+        preg_match_all($pattern, $this->line, $matches);
+
+        return $matches;
+    }
+
     public function replace(string $pattern, string $replacement): void
     {
         $this->line = preg_replace($pattern, $replacement, $this->line);

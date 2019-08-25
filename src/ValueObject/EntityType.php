@@ -14,6 +14,7 @@ class EntityType
     private const UNORDERED_LIST = 'UNORDERED_LIST';
     private const ORDERED_LIST = 'ORDERED_LIST';
     private const BLOCK_QUOTE = 'BLOCK_QUOTE';
+    private const TABLE = 'TABLE';
     private const HEADER = 'HEADER';
     private const UNDERLINED_HEADER = 'UNDERLINED_HEADER';
     private const INLINE_BOLD_ITALIC = 'INLINE_BOLD_ITALIC';
@@ -75,6 +76,11 @@ class EntityType
     public static function blockQuote(): EntityType
     {
         return new static(self::BLOCK_QUOTE);
+    }
+
+    public static function table(): EntityType
+    {
+        return new static(self::TABLE);
     }
 
     public static function header(): EntityType
