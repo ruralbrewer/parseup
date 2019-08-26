@@ -30,7 +30,7 @@ class FootNoteConverter implements MarkDownLineConverter
     {
         $this->matches = $line->getMatches('/\[\^([^\s]+)\]:\s*(.*)/');
 
-        return !empty($this->matches);
+        return !empty($this->matches[0]);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

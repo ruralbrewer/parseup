@@ -25,7 +25,7 @@ class UnderlinedHeaderConverter implements MarkDownLineConverter
     {
         $this->matches = $line->getMatches('/^\s*((==)+|(--)+)/');
 
-        return !empty($this->matches);
+        return !empty($this->matches[0]);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

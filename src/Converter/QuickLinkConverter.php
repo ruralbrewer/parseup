@@ -19,7 +19,7 @@ class QuickLinkConverter implements MarkDownLineConverter
     {
         $matches = $line->getMatches('/<(.*)>/');
 
-        return (!empty($matches) && filter_var($matches[1], FILTER_VALIDATE_URL) !== false);
+        return (!empty($matches[1]) && filter_var($matches[1], FILTER_VALIDATE_URL) !== false);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

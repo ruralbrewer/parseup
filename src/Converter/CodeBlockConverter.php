@@ -29,7 +29,7 @@ class CodeBlockConverter implements MarkDownLineConverter
     {
         $this->matches = $line->getMatches('/[\~`]{3}([a-z]*)\s.*/');
 
-        return !empty($this->matches);
+        return !empty($this->matches[0]);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

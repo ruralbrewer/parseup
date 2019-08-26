@@ -19,7 +19,7 @@ class QuickEmailConverter implements MarkDownLineConverter
     {
         $matches = $line->getMatches('/<(.*)>/');
 
-        return (!empty($matches) && filter_var($matches[1], FILTER_VALIDATE_EMAIL) !== false);
+        return (!empty($matches[1]) && filter_var($matches[1], FILTER_VALIDATE_EMAIL) !== false);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

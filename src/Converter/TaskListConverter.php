@@ -24,7 +24,7 @@ class TaskListConverter implements MarkDownLineConverter
     {
         $this->matches = $line->getMatches('/^\s{0,3}- \[([\sxX])\]\s{1,3}(.*)/');
 
-        return !empty($this->matches);
+        return !empty($this->matches[0]);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])

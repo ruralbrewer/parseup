@@ -106,9 +106,11 @@ class TableConverter implements MarkDownLineConverter, BlockWithoutEndTag, Nesta
 
                 $row = '<tr>';
 
-                foreach ($this->matches[1] as $index => $tdText) {
+                foreach ($this->tHeadMatches[1] as $index => $column) {
 
-                    if (!empty($tdText)) {
+                    if (!preg_match('/^[\s]*$/', $column)) {
+
+                        $tdText = isset($this->matches[1][$index]) ? $this->matches[1][$index] : '';
 
                         $align = (isset($this->alignment[$index])) ? $this->alignment[$index] : 'center';
 

@@ -22,11 +22,9 @@ class LinkConverter implements MarkDownLineConverter
 
     public function canConvert(Line $line): bool
     {
-        $matches = $line->getMatches('/(?<!!)\[(.*)]\(([^ "\']+)([ ]["\']([^"\'\]]+)["\'])?\)/');
+        $this->matches = $line->getMatches('/(?<!!)\[(.*)]\(([^ "\']+)([ ]["\']([^"\'\]]+)["\'])?\)/');
 
-        $this->matches = $matches;
-
-        return !empty($matches);
+        return !empty($this->matches[0]);
     }
 
     public function convert(Line $line, BlockStack $blockStack, &$html = [])
