@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ParseUp;
 
+use ParseUp\Converter\Interfaces\HighLighter;
 use ParseUp\Exception\ConverterNotFoundException;
 use ParseUp\Exception\InvalidMarkDownException;
 use ParseUp\Exception\NoTitleFoundException;
@@ -74,6 +75,30 @@ class MarkDownToHtml implements MarkDownParser
     {
         $this->html = [];
         $this->markDown = $markDown;
+    }
+
+    /**
+     * @throws ConverterNotFoundException
+     */
+    public function setHighlighterPrefix(string $prefix)
+    {
+        if (
+            !$this->converters->hasConverterType(EntityType::indentedCode()) &&
+            !$this->converters->hasConverterType(EntityType::code())
+        ) {
+            throw new ConverterNotFoundException('No code block converter found.');
+        }
+
+        /** @var HighLighter $converter */
+        if ($this->converters->hasConverterType(EntityType::indentedCode())) {
+            $converter = $this->converters->getConverterType(EntityType::indentedCode());
+            $converter->setHighlighterPrefix($prefix);
+        }
+
+        if ($this->converters->hasConverterType(EntityType::code())) {
+            $converter = $this->converters->getConverterType(EntityType::code());
+            $converter->setHighlighterPrefix($prefix);
+        }
     }
 
     /**

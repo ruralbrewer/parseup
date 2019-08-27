@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace ParseUp\Converter;
 
+use ParseUp\Converter\Interfaces\HighLighter;
 use ParseUp\Converter\Interfaces\MarkDownLineConverter;
 use ParseUp\Utility\BlockStack;
 use ParseUp\ValueObject\EntityType;
 use ParseUp\ValueObject\Line;
 
-class CodeBlockConverter implements MarkDownLineConverter
+class CodeBlockConverter implements MarkDownLineConverter, HighLighter
 {
     /**
      * @var array
@@ -19,6 +20,11 @@ class CodeBlockConverter implements MarkDownLineConverter
      * @var bool
      */
     private $isBlockEnd = false;
+
+    /**
+     * @var string
+     */
+    private $highlighterPrefix = '';
 
     public function type(): EntityType
     {
@@ -36,7 +42,7 @@ class CodeBlockConverter implements MarkDownLineConverter
     {
         $tag = $this->checkForParagraph($blockStack);
 
-        $opener = (!empty($this->matches[1])) ? '<pre><code class="' . $this->matches[1] .'">' : '<pre><code>';
+        $opener = (!empty($this->matches[1])) ? '<pre><code class="' . $this->highlighterPrefix . $this->matches[1] .'">' : '<pre><code>';
 
         $tag = $tag . $opener;
 
@@ -69,5 +75,10 @@ class CodeBlockConverter implements MarkDownLineConverter
         }
 
         return $tag;
+    }
+
+    public function setHighlighterPrefix(string $prefix): void
+    {
+        $this->highlighterPrefix = $prefix . '-';
     }
 }

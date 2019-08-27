@@ -3,6 +3,6 @@ declare(strict_types=1);
 
 namespace ParseUp\Exception;
 
-class InvalidMarkDownException extends MdUpException
+class InvalidMarkDownException extends ParseUpException
 {
 }

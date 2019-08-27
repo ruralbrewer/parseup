@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ParseUp\Converter;
 
 use ParseUp\Converter\Interfaces\BlockWithoutEndTag;
+use ParseUp\Converter\Interfaces\HighLighter;
 use ParseUp\Converter\Interfaces\MarkDownLineConverter;
 use ParseUp\Converter\Interfaces\Nestable;
 use ParseUp\Utility\BlockStack;
@@ -11,7 +12,7 @@ use ParseUp\Utility\EntityTypeCollection;
 use ParseUp\ValueObject\EntityType;
 use ParseUp\ValueObject\Line;
 
-class IndentedCodeBlockConverter implements MarkDownLineConverter, Nestable, BlockWithoutEndTag
+class IndentedCodeBlockConverter implements MarkDownLineConverter, Nestable, BlockWithoutEndTag, HighLighter
 {
     /**
      * @var EntityTypeCollection
@@ -21,6 +22,12 @@ class IndentedCodeBlockConverter implements MarkDownLineConverter, Nestable, Blo
     private $currentIndentionLevel = 0;
 
     private $isNesting = false;
+
+    /**
+     * @var string
+     */
+    private $highlighterPrefix = '';
+
 
     public function __construct()
     {
@@ -51,7 +58,7 @@ class IndentedCodeBlockConverter implements MarkDownLineConverter, Nestable, Blo
 
                 $tag = $this->checkForParagraph($blockStack);
 
-                $tag = $tag . '<pre><code>';
+                $tag = $tag . '<pre><code class="' . $this->highlighterPrefix . $this->matches[1] .'">';
 
                 $blockStack->push(EntityType::indentedCode());
 
@@ -100,5 +107,10 @@ class IndentedCodeBlockConverter implements MarkDownLineConverter, Nestable, Blo
         }
 
         return $tag;
+    }
+
+    public function setHighlighterPrefix(string $prefix): void
+    {
+        $this->highlighterPrefix = $prefix . '-';
     }
 }
